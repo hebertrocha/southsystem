@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import br.com.southsystem.model.enuns.StatusPauta;
+
 @Entity
 public class Pauta {
 
@@ -12,7 +14,7 @@ public class Pauta {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String assunto;
-	private String status;
+	private StatusPauta status;
 	
 	public String getAssunto() {
 		return assunto;
@@ -20,17 +22,14 @@ public class Pauta {
 	public void setAssunto(String assunto) {
 		this.assunto = assunto;
 	}
-	public String getStatus() {
+	public StatusPauta getStatus() {
 		return status;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setStatus(StatusPauta fechada) {
+		this.status = fechada;
 	}
 	public Long getId() {
 		return id;
 	}
-	
-	
-	
-	
+
 }
