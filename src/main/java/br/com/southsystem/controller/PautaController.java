@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.southsystem.controller.exception.ObjectNotFoundException;
+import br.com.southsystem.dto.PautaAbrirDTO;
 import br.com.southsystem.dto.PautaNewDTO;
 import br.com.southsystem.model.Pauta;
 import br.com.southsystem.model.enuns.StatusPauta;
+import br.com.southsystem.model.service.PautaService;
 import br.com.southsystem.repository.PautaRepository;
 
 @RestController
@@ -23,6 +25,9 @@ public class PautaController {
 	
 	@Autowired
 	PautaRepository repo;
+	
+	@Autowired
+	PautaService ps;
 
 	@RequestMapping(method = RequestMethod.POST)
 	public Pauta insert(@RequestBody PautaNewDTO objDTO){
@@ -46,6 +51,13 @@ public class PautaController {
 		Optional<Pauta> associado = repo.findById(id);
 		return associado.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado: Id:" + id + ", Tipo: " + Pauta.class.getName()));
+		
+	}
+	
+	@RequestMapping(value = "/abrir", method=RequestMethod.POST)
+	public void abrePauta(@RequestBody PautaAbrirDTO pautaDTO) {
+		Pauta pauta = ps.find(pautaDTO.getId());
+		ps.abrirPauta(pautaDTO.getTempo(), pauta);
 		
 	}
 	

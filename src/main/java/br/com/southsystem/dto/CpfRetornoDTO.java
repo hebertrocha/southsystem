@@ -1,20 +1,19 @@
-package br.com.southsystem.model;
+package br.com.southsystem.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CpfRetorno {
+public class CpfRetornoDTO {
 
 	@JsonProperty("status")
 	private String status;
 
-	public CpfRetorno(String status) {
-		super();
+	public CpfRetornoDTO(String status) {
 		this.status = status;
 	}
 
-	public CpfRetorno() {
+	public CpfRetornoDTO() {
 		
 	}
 

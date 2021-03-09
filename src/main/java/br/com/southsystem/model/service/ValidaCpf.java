@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import br.com.southsystem.model.CpfRetorno;
+import br.com.southsystem.dto.CpfRetornoDTO;
 
 
 public class ValidaCpf {
@@ -28,7 +28,7 @@ public class ValidaCpf {
 			
 		log.info(uri.toUriString());
 			
-		ResponseEntity<CpfRetorno> resultado =  template.getForEntity(uri.toUriString(), CpfRetorno.class);
+		ResponseEntity<CpfRetornoDTO> resultado =  template.getForEntity(uri.toUriString(), CpfRetornoDTO.class);
 			
 		log.info("Verification endpoint call completed.");
 		if (resultado.getStatusCode() != HttpStatus.NOT_FOUND){
