@@ -1,16 +1,17 @@
-package br.com.southsystem.model.service;
+package br.com.southsystem.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import br.com.southsystem.dto.CpfRetornoDTO;
 
-
+@Service
 public class ValidaCpf {
 
 	private static Logger log = LoggerFactory.getLogger(ValidaCpf.class);
