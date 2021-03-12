@@ -5,14 +5,15 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.southsystem.model.enuns.OpcaoVoto;
 
 @Entity
-@IdClass(RelatPK.class)
+
 public class Voto implements Serializable{
 	
 	/**
@@ -23,7 +24,7 @@ public class Voto implements Serializable{
 	@Id
 	private String cpf;
 	
-	@Id
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="pauta_id")
 	private Pauta pauta;
@@ -31,11 +32,12 @@ public class Voto implements Serializable{
 	
 	private OpcaoVoto opcao;
 	
-	
-	
+
+	public Voto() {
+
+	}
 	
 	public Voto(String cpf, Pauta pauta, OpcaoVoto opcao) {
-		super();
 		this.cpf = cpf;
 		this.pauta = pauta;
 		this.opcao = opcao;

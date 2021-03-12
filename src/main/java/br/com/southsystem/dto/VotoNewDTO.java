@@ -4,15 +4,15 @@ import br.com.southsystem.model.enuns.OpcaoVoto;
 
 public class VotoNewDTO {
 
-	private String Cpf;
+	private String cpf;
 	private Long idPauta;
 	private OpcaoVoto opcao;
 	
 	public String getCpf() {
-		return Cpf;
+		return cpf;
 	}
 	public void setCpf(String cpf) {
-		Cpf = cpf;
+		this.cpf = cpf;
 	}
 
 	public Long getIdPauta() {
